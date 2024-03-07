@@ -9,9 +9,12 @@ public class birdScript : MonoBehaviour
     public LogicScript logic;
     public bool birdAlive = true;
 
+    public Animator anim;
+
     // Start is called before the first frame update
     void Start()
     {
+        anim = GetComponent<Animator>();
         logic = GameObject.FindGameObjectWithTag("Logic").GetComponent<LogicScript>();
     }
 
@@ -21,13 +24,13 @@ public class birdScript : MonoBehaviour
         if (Input.GetKeyDown(KeyCode.Space) && birdAlive && transform.position.y < 11.2)
         {
             myRigidbody.velocity = Vector2.up * flapStrength;
+            anim.Play("bird-flap", -1, 0f);
         }
 
         if (transform.position.y < -13)
         {
             logic.gameOver();
         }
-        
     }
 
     private void OnCollisionEnter2D(Collision2D collision)

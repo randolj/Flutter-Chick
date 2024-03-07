@@ -30,5 +30,10 @@ public class LogicScript : MonoBehaviour
     {
         gameOverScreen.SetActive(true);
         isGameOver = true;
-    } 
+    }
+
+    public void MainMenu()
+    {
+        SceneManager.LoadSceneAsync(0);
+    }
 }
