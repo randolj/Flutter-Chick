@@ -8,6 +8,7 @@ public class birdScript : MonoBehaviour
     public float flapStrength = 10;
     public LogicScript logic;
     public bool birdAlive = true;
+    public bool pause = false;
 
     public Animator anim;
 
@@ -31,6 +32,7 @@ public class birdScript : MonoBehaviour
         {
             logic.gameOver();
         }
+
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
